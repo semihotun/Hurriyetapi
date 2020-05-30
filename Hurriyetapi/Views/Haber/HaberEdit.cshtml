@@ -1,0 +1,34 @@
+﻿<meta charset="UTF-8">
+@model Hurriyetapi.Models.Haberinfo
+
+@using (Html.BeginForm())
+{
+    foreach (var item in Model.Files)
+    {
+        <img src="@item.FileUrl" width="200px" height="200px" />
+    }
+    <br />
+    <br />
+    @Model.Id
+
+    <br />
+    <br />
+
+    @Html.Raw(Model.Text)
+
+    @*foreach (var item in Model.Haberbilgisi)
+        {
+
+            foreach (var photo in item.Files)
+            {
+                <img src="@photo.FileUrl" width="200px" height="200px" />
+            }
+            <br />
+            @item.Id <br />
+            @item.Description<br />
+            @item.Text<br />
+
+            @Html.ActionLink("Habere Git", "HaberEdit", new { id = item.Id }, new { @class = "btn btn-default" })<br />
+        }*@
+}
+

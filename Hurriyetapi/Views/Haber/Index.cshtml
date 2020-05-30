@@ -1,0 +1,25 @@
+﻿
+@model Hurriyetapi.Models.HaberModel
+
+@using (Html.BeginForm())
+{
+    foreach (var item in Model.Haber)
+    {
+
+        foreach (var photo in item.Files)
+        {
+            <img src="@photo.FileUrl" width="200px" height="200px" />
+        }
+        <br />
+        @item.Id
+        <br />
+        @item.Description
+        <br />
+        @item.CreatedDate
+        <br />
+
+        @Html.ActionLink("Habere Git", "HaberEdit", new { id = item.Id }, new { @class = "btn btn-default" })
+        <br />
+    }
+}
+
